@@ -11,14 +11,26 @@ resolvers += "Sonatype OSS Snapshots" at
   "https://oss.sonatype.org/content/repositories/snapshots"
 
 libraryDependencies ++= List(
-  "org.json4s" %% "json4s-native" % "3.3.0",
-  "org.json4s" %% "json4s-jackson" % "3.3.0",
-  "de.heikoseeberger" %% "akka-http-json4s" % "1.4.2",
-  "com.typesafe.akka" %% "akka-stream-experimental" % "2.0.2",
-  "com.typesafe.akka" %% "akka-http-core-experimental" % "2.0.2",
-  "com.typesafe.akka" %% "akka-http-experimental" % "2.0.2",
-  "com.storm-enroute" %% "scalameter" % "0.7",
-  "org.scalatest" %% "scalatest" % "2.2.6" % "test"
+  Library.akkaStream,
+  Library.akkaHttpCore,
+  Library.akkaHttp,
+  Library.akkaHttpJson4s,
+  Library.config,
+  Library.javaxsWsRs,
+  Library.json4sJackson,
+  Library.json4sNative,
+  Library.logBack,
+  Library.scalaMeter,
+  Library.scalaTest,
+  Library.swaggerCore,
+  Library.scalacheck,
+  Library.commonsCodec,
+  Library.commonsLang,
+  Library.scalaLogging,
+  Library.swaggerCore
+
+
+
 )
 
 testFrameworks += new TestFramework("org.scalameter.ScalaMeterFramework")

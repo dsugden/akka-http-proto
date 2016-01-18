@@ -3,14 +3,18 @@ package proto
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
+import swagger.SwaggerService
 
 object ProtoApp extends App{
 
   implicit val system = ActorSystem("my-system")
   implicit val materializer = ActorMaterializer()
   implicit val ec = system.dispatcher
-
   val protoRoutes = new ProtoRoutes {}
+
+  import scala.reflect.runtime.universe._
+  val swaggerApiService = SwaggerService(Seq(typeOf[ProtoRoutes]))
+
 
   val bindingFuture = Http().bindAndHandle(protoRoutes.route, "localhost", 8080)
 
